@@ -15,7 +15,7 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('', async (req, res) => {
     try {
-        const data = await getpopular()
+        const data = await getSerie(1399)
         res.send(data)
     } catch (e) {
         res.send({"Error": e})

@@ -10,7 +10,25 @@ const getSeason = (id, seasonNumber) => {
             } else if (response.body.status_code) {
                 reject(response.body.status_message)
             } else {
-                resolve(response.body)
+                let episodes = []
+                response.body.episodes.forEach(function(episode) {
+                    episodes.push({
+                        air_date: episode.air_date,
+                        number: episode.episode_number,
+                        name: episode.name,
+                        overview: episode.overview,
+                        rating: episode.vote_average,
+                    })
+                })
+                const data = {
+                    air_date: response.body.air_date,
+                    name: response.body.name,
+                    overview: response.body.overview,
+                    poster: response.body.poster_path,
+                    number: response.body.season_number,
+                    episodes
+                }
+                resolve(data)
             }
         })
     })
