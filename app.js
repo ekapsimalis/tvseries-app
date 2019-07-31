@@ -22,7 +22,7 @@ app.get('', async (req, res) => {
     }
 })
 
-app.get('/movies/:id', async (req, res) => {
+app.get('/serie/:id', async (req, res) => {
     //print the passing param {{id}}
     const param = req.params
     // Sending back the params...
