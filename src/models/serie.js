@@ -7,8 +7,7 @@
 const mongoose = require('mongoose')
 
 const Serie = mongoose.model('Serie', {
-    // TODO
-    // Mirror the response object...
+
 })
 
 module.exports = Serie

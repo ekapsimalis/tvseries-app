@@ -7,5 +7,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/series-app-db', {
     useNewUrlParser: true,
     useCreateIndex: true
 
+}).catch((e) => {
+    console.log('Cant connect to database!')
+    process.exit(1)
 })
 

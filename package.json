@@ -4,7 +4,8 @@
   "description": "Testing API requests",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [
     "series"
@@ -12,9 +13,13 @@
   "author": "Kapsimalis Eleftherios",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^2.6.2",
     "express": "^4.17.1",
     "mongoose": "^5.6.7",
     "request": "^2.88.0",
     "validator": "^11.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }

@@ -13,7 +13,7 @@ const getOnAir = () => {
             } else {
                 const movies = response.body.results
                 const data = movies.filter(function (movie) {
-                    return movie.origin_country[0] !== 'JP'
+                    return movie.origin_country[0] !== 'JP' && movie.origin_country[0] !== 'IN'
                 })
                 resolve(data)
             }
