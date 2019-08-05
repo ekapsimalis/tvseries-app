@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/header') %>
+
+<body>
+    <%- include('partials/navbar') %>
+    <div class="container">
+        <h1> <%=results %> </h1>
+        <% for(var i=0; i<data.length; i++) {%>
+        <div class="media">
+            <img src="https://image.tmdb.org/t/p/w185<%=data[i].poster_path %>" class="mr-3" alt="...">
+            <div class="media-body">
+                <a href="/series/<%=data[i].id %>">
+                    <h5 class="mt-0"> <%=data[i].original_name %> </h5>
+                </a>
+                <%=data[i].overview %>
+            </div>
+        </div>
+        <hr>
+        <% } %>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+
+</html>

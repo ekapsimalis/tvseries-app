@@ -6,7 +6,7 @@ const getSeason = (id, seasonNumber) => {
     return new Promise((resolve, reject) => {
         request({url: url, json: true}, (error, response) => {
             if (error) {
-                reject('Check your internet connection')
+                reject('Service Unreachable!')
             } else if (response.body.status_code) {
                 reject(response.body.status_message)
             } else {

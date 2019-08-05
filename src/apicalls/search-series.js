@@ -1,6 +1,3 @@
-// Due to move to client side JavaScript...
-// TODO
-
 const request = require('request')
 const api = require('./api')
 
@@ -9,9 +6,12 @@ const searchSeries = (querry) => {
     return new Promise((resolve, reject) => {
         request({url: url, json: true}, (error, response) => {
             if (error) {
-                reject('Check your internet connection')
+                reject('Service Unreachable!')
             } else {
-                const results = response.body.results
+                const data = response.body.results
+                const results = data.filter(function(result) {
+                    return result.origin_country[0] !== 'JP' && result.origin_country[0] !== 'IN'
+                })
                 resolve(results)
             }
         })

@@ -14,6 +14,8 @@ const app = express()
 // Setting public directory access for express
 const publicDirectoryPath = path.join(__dirname, '/public')
 app.use(express.static(publicDirectoryPath))
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
 //Setting ejs templating engine
 app.set('view engine', 'ejs');
@@ -23,7 +25,7 @@ app.get('', async (req, res) => {
         const data = await getpopular()
         res.status(200).send(data)
     } catch (e) {
-        res.send({"Error": e})
+        res.status(500).send(e)
     }
 })
 
@@ -51,17 +53,24 @@ app.get('/series/:id/:seasonNumber', async (req, res) => {
 app.get('/search', async (req, res) => {
     const text = req.query.text
     const data = await searchSeries(text)
+    const result_numbers = data.length
     if (data === undefined || data.length == 0) {
         return res.status(404).send({error: 'No results'})
     }
-    res.status(200).send(data)
+    res.status(200).render('search_screen', {data, results: result_numbers})
 })
 
 app.get('/sample', (req, res) => {
-    res.render('index', {
-        name: 'Lefteris',
-        job: 'Software Developer',
-    })
+    res.render('index')
+})
+
+app.post('/register', (req, res) => {
+    console.log(req.body)
+    res.status(200).send(req.body)
+})
+
+app.post('/login', async (req, res) => {
+
 })
 
 app.get('*', (req, res) => {

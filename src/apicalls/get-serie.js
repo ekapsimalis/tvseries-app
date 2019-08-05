@@ -7,7 +7,7 @@ const getSerie = (id) => {
     return new Promise((resolve, reject) => {
         request({url: url, json: true}, (error, response) => {
             if (error) {
-                reject('Check your internet connection')
+                reject('Service Unreachable!')
             } else if (response.body === undefined) {
                 reject('Something went wrong')
             } else {
