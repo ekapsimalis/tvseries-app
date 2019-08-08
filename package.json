@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "env-cmd nodemon app.js"
   },
   "keywords": [
     "series"
@@ -13,13 +13,17 @@
   "author": "Kapsimalis Eleftherios",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.4",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
+    "express-session": "^1.16.2",
     "mongoose": "^5.6.7",
     "request": "^2.88.0",
     "validator": "^11.1.0"
   },
   "devDependencies": {
+    "env-cmd": "^9.0.3",
     "nodemon": "^1.19.1"
   }
 }

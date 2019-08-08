@@ -5,7 +5,7 @@
 <body>
     <%- include('partials/navbar') %>
     <div class="container">
-        <h1> <%=results %> </h1>
+        <hr>
         <% for(var i=0; i<data.length; i++) {%>
         <div class="media">
             <img src="https://image.tmdb.org/t/p/w185<%=data[i].poster_path %>" class="mr-3" alt="...">
@@ -13,7 +13,7 @@
                 <a href="/series/<%=data[i].id %>">
                     <h5 class="mt-0"> <%=data[i].original_name %> </h5>
                 </a>
-                <%=data[i].overview %>
+                <p id="card-text"><%=data[i].overview %></p>
             </div>
         </div>
         <hr>
@@ -21,5 +21,4 @@
     </div>
     <%- include('partials/footer') %>
 </body>
-
 </html>

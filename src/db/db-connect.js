@@ -7,7 +7,7 @@ const fs = require('fs')
 
 const logPath = path.join(__dirname, '../../logs/report.txt')
 
-mongoose.connect('mongodb://127.0.0.1:27017/series-app-db', {
+mongoose.connect(process.env.MONGO_DB_CONNECTION, {
     useNewUrlParser: true,
     useCreateIndex: true
 
